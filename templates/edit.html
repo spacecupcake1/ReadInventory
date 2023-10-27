@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Book</title>
+</head>
+<body>
+    <h1>Edit Book</h1>
+    
+    <form action="/edit/{{ book[0] }}" method="post">
+        <label for="book_name">Book Name:</label>
+        <input type="text" id="book_name" name="book_name" value="{{ book[1] }}" required><br><br>
+
+        <label for="date_started">Date Started:</label>
+        <input type="date" id="date_started" name="date_started" value="{{ book[2] }}" required><br><br>
+
+        <label for="date_ended">Date Ended:</label>
+        <input type="date" id="date_ended" name="date_ended" value="{{ book[3] }}" required><br><br>
+
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" min="1" max="5" value="{{ book[4] }}" required><br><br>
+
+        <input type="submit" value="Save Changes">
+    </form>
+</body>
+</html>

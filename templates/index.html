@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Inventory</title>
+</head>
+<body>
+    <h1>Book Inventory</h1>
+    
+    <form action="/" method="post">
+        <label for="book_name">Book Name:</label>
+        <input type="text" id="book_name" name="book_name" required><br><br>
+
+        <label for="date_started">Date Started:</label>
+        <input type="date" id="date_started" name="date_started" required><br><br>
+
+        <label for="date_ended">Date Ended:</label>
+        <input type="date" id="date_ended" name="date_ended" required><br><br>
+
+        <label for="rating">Rating:</label>
+        <input type="number" id="rating" name="rating" min="1" max="5" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+
+    <h2>Book List</h2>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Book Name</th>
+            <th>Date Started</th>
+            <th>Date Ended</th>
+            <th>Rating</th>
+        </tr>
+        {% for book in books %}
+        <tr>
+            <td>{{ book[0] }}</td>
+            <td>{{ book[1] }}</td>
+            <td>{{ book[2] }}</td>
+            <td>{{ book[3] }}</td>
+            <td>{{ book[4] }}</td>
+            <td>
+                <a href="/edit/{{ book[0] }}">Edit</a>
+                <a href="/delete/{{ book[0] }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
